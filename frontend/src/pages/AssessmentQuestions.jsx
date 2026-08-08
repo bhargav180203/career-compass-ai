@@ -40,7 +40,7 @@ const AssessmentQuestions = () => {
   const fetchQuestions = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:5000/api/assessment/questions',
+        `${process.env.REACT_APP_API_URL}/assessment/questions`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -48,8 +48,11 @@ const AssessmentQuestions = () => {
       setQuestions(response.data.questions);
       setLoading(false);
     } catch (error) {
-      console.error('Fetch questions error:', error);
-      alert('Failed to load questions');
+  console.error('Fetch questions error:', error);
+  console.log('Status:', error.response?.status);
+  console.log('Response:', error.response?.data);
+  console.log('URL:', error.config?.url);
+  alert('Failed to load questions');
     }
   };
 
@@ -120,7 +123,7 @@ const AssessmentQuestions = () => {
     setSubmitting(true);
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/assessment/submit',
+        `${process.env.REACT_APP_API_URL}/assessment/submit`,
         {
           assessmentId,
           responses,

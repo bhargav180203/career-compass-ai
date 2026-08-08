@@ -16,7 +16,7 @@ const RecommendedCareers = () => {
   const fetchRecommendedCareers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/careers/recommended/me', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/careers/recommended/me`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setRecommendedCareers(response.data.data);

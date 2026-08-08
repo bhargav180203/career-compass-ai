@@ -27,7 +27,7 @@ const CareersBrowse = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/careers/categories');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/careers/categories`);
       setCategories(['All', ...response.data.categories]);
     } catch (error) {
       console.error('Fetch categories error:', error);
@@ -46,7 +46,7 @@ const CareersBrowse = () => {
         ...(filters.demand && { demand: filters.demand }),
       });
 
-      const response = await axios.get(`http://localhost:5000/api/careers?${params}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/careers?${params}`);
       setCareers(response.data.careers);
       setPagination(response.data.pagination);
     } catch (error) {

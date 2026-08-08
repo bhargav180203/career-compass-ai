@@ -9,7 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const API_URL = 'http://localhost:5000/api';
+  const API_URL = process.env.REACT_APP_API_URL;
   const { isAuthenticated, user } = useAuth();
 
   // Get Career Recommendation

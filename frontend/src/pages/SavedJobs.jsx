@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 
-const API = 'http://localhost:5000/api';
+const API = process.env.REACT_APP_API_URL;
 
 const STATUS_OPTIONS = [
   { value: 'saved', label: 'Saved', color: 'bg-blue-100 text-blue-700' },

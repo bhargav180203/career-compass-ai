@@ -101,7 +101,7 @@ const Login = () => {
                   onError={handleGoogleError}
                   size="large"
                   text="signin_with"
-                  width="100%"
+                  width="350"
                 />
               </div>
             </div>

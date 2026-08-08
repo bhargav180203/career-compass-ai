@@ -85,7 +85,7 @@ const CareerPreferencesSection = ({ profile, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        'http://localhost:5000/api/profile/career-preferences',
+        `${process.env.REACT_APP_API_URL}/profile/career-preferences`,
         { careerPreferences: formData },
         { headers: { Authorization: `Bearer ${token}` } }
       );

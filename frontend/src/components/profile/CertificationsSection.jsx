@@ -33,7 +33,7 @@ const CertificationsSection = ({ profile, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/profile/certification',
+        `${process.env.REACT_APP_API_URL}/profile/certification`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -54,7 +54,7 @@ const CertificationsSection = ({ profile, onUpdate }) => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/profile/certification/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/profile/certification/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       onUpdate();

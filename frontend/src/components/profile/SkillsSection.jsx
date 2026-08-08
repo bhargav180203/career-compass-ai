@@ -37,7 +37,7 @@ const SkillsSection = ({ profile, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        'http://localhost:5000/api/profile/skills',
+        `${process.env.REACT_APP_API_URL}/profile/skills`,
         { skills },
         { headers: { Authorization: `Bearer ${token}` } }
       );

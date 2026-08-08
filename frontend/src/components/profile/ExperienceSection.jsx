@@ -78,8 +78,8 @@ const ExperienceSection = ({ profile, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       const url = editingId
-        ? `http://localhost:5000/api/profile/experience/${editingId}`
-        : 'http://localhost:5000/api/profile/experience';
+  ? `${process.env.REACT_APP_API_URL}/profile/experience/${editingId}`
+  : `${process.env.REACT_APP_API_URL}/profile/experience`;
       
       const method = editingId ? 'put' : 'post';
       
@@ -103,7 +103,7 @@ const ExperienceSection = ({ profile, onUpdate }) => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/profile/experience/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/profile/experience/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       onUpdate();

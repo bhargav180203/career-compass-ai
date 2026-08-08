@@ -43,7 +43,7 @@ const CareerLibrary = () => {
 
   const fetchFilterOptions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/careers/filters');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/careers/filters`);
       setFilterOptions(response.data.data);
     } catch (error) {
       console.error('Error fetching filter options:', error);
@@ -64,7 +64,7 @@ const CareerLibrary = () => {
         if (!value) params.delete(key);
       }
 
-      const response = await axios.get(`http://localhost:5000/api/careers?${params}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/careers?${params}`);
       setCareers(response.data.data);
       setPagination(response.data.pagination);
     } catch (error) {

@@ -54,8 +54,8 @@ const EducationSection = ({ profile, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       const url = editingId
-        ? `http://localhost:5000/api/profile/education/${editingId}`
-        : 'http://localhost:5000/api/profile/education';
+  ? `${process.env.REACT_APP_API_URL}/profile/education/${editingId}`
+  : `${process.env.REACT_APP_API_URL}/profile/education`;
       
       const method = editingId ? 'put' : 'post';
       
@@ -79,7 +79,7 @@ const EducationSection = ({ profile, onUpdate }) => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/profile/education/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/profile/education/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       onUpdate();

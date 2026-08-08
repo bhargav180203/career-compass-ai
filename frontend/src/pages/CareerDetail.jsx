@@ -19,7 +19,7 @@ const CareerDetail = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`http://localhost:5000/api/careers/${slug}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/careers/${slug}`);
       setCareer(response.data.data);
       
       // Related careers are populated in the response

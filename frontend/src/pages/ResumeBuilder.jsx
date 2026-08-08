@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 import ResumePreview from './ResumePreview';
 
-const API = 'http://localhost:5000/api';
+const API = process.env.REACT_APP_API_URL;
 
 // ─── Section Tab Config ────────────────────────────────────────────────────────
 const SECTION_TABS = [

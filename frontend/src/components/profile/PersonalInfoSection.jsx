@@ -66,7 +66,7 @@ const PersonalInfoSection = ({ profile, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        'http://localhost:5000/api/profile/personal-info',
+        `${process.env.REACT_APP_API_URL}/profile/personal-info`,
         { personalInfo: formData },
         { headers: { Authorization: `Bearer ${token}` } }
       );
